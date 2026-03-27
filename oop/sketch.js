@@ -1,0 +1,90 @@
+let cloud;
+let cloud2;
+function setup() {
+  createCanvas(400, 400);
+  cloud = new Cloud(width / 2, height / 2, 1);
+  cloud2 = new Cloud(width / 4, height / 4, 0.5);
+
+}
+
+function draw() {
+  background(220);
+  cloud.update();
+  cloud.display();
+  cloud2.update();
+  cloud2.display();
+}
+
+class Cloud {
+  //constructor is like the setup
+  constructor(x, y, sc) {
+    this.x = x;
+    this.y = y;
+    this.x0 = this.x;
+    this.y0 = this.y;
+    this.sc = sc;
+  }
+  //what it will draw the cloud
+  display() {
+    push();
+    translate(this.x, this.y);
+    scale(this.sc);
+    this.drawRightArm();
+    this.drawLeftArm();
+    noStroke();
+    //body
+    circle(0, 0, 100);
+    //circles around
+    for (let a = 0; a < 2 * PI; a += PI / 6) {
+      push();
+      rotate(a);
+      circle(50, 30, 50);
+      pop();
+    }
+    //eyes
+    fill(0);
+    circle(-30, 0, 5);
+    circle(30, 0, 5);
+    arc(0, 0, 30, 30, 0, PI);
+    pop();
+  }
+  //updating the variables
+  update() {
+    //this.y = noise(frameCount * 0.01) * height;
+    this.x = this.x0 + 30*sin(frameCount * 0.1);
+    this.y = this.y0 + 30*cos(frameCount * 0.1);
+    this.sc = map(sin(frameCount * 0.05), -1, 1, 0.5, 1.5);
+
+  }
+   drawRightArm() {
+    //Right arm
+    push();
+    beginShape();
+    let lineLength = 110;
+    noFill();
+    for (let i = 0; i <= lineLength; i += lineLength / 20) {
+      strokeWeight(10);
+      let v = 15 * sin(frameCount * 0.1 - i / 20);
+      vertex(i, v);
+    }
+    endShape();
+    pop();
+  }
+  
+  drawLeftArm() {
+    //Left arm
+    push();
+    scale(-1,1);  //this is like a mirror!
+    beginShape();
+    let lineLength = 110;
+    noFill();
+    for (let i = 0; i <= lineLength; i += lineLength / 20) {
+      strokeWeight(10);
+      let v = 15 * sin(frameCount * 0.1 - i / 20);
+      vertex(i, v);
+    }
+    endShape();
+    pop();
+  }
+}
+
