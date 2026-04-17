@@ -18,12 +18,10 @@ function draw() {
   background(220);
   count = count + 5
   for (let i = 0; i < sv.length; i++) {
-    sv[i].displayBuilding();
     sv[i].displayLine();
-    if (mouseIsPressed){
-      sv[i].moveBuilding();
-    }
+    sv[i].moveBuilding();
     sv[i].updateBuilding();
+    sv[i].displayBuilding();
   }
   if (frameCount % 20 == 0) {
     i = i + 1;

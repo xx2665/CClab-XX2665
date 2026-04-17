@@ -33,10 +33,11 @@ class Sideview {
     }
     moveBuilding(){
         let d = dist(mouseX, mouseY, this.x, this.y)
-        if (d < 25){
-            this.accx = this.accx * -this.away
+        if (d < 50){
+            this.accx = (mouseX - this.x)* -this.away
             this.speed2 += this.accx
         } 
+        this.speed2 = this.speed2 * 0.9
         this.x += this.speed2
 }
 }
