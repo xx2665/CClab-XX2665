@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Flipping City</title>
+
+  <link rel="stylesheet" type="text/css" href="style.css">
+
+  <script src="lib/p5.js"></script>
+  <script src="lib/p5.sound.js"></script>
+  <script src="https://unpkg.com/ml5@1/dist/ml5.js"></script>
+
+
+
+<body>
+
+  <div class="main-wrapper">
+    <h1>Flipping City</h1>
+
+    <!-- the following div will contain the p5 canvas. -->
+    <div id="p5-canvas-container">
+      <!-- p5 canvas will be appended here. -->
+    </div>
+
+    <p>Without interaction, the city will start from lines and grow into a map with dense and crossed lines. Clicking at a certain point will 
+      plant a little flower there, which is adding to the greenery of the city. 
+      
+    <p>Flip your hand up, it'll show the side view of the city, with buildings growing from the ground. Maybe this reminds you of Hong Kong, a 
+      city that you cannot see the sky, especially near the Victoria Harbor. However, here, you can have the chance to move the buildings away 
+      and see the blue sky above.</p>
+
+    <p>Flip your hand down, get back to the overview of the city.</p>
+
+    <p>I want to send the message about city extension and the importance of including nature into a city. </p>
+</p>
+  </div>
+
+  <!-- the script tag below should always be at the bottom, right before the closing body tag -->
+  <script src="sketch.js"></script>
+  <script src="sideview.js"></script>
+  <script src="overview.js"></script>
+  <script src="flower.js"></script>
+</body>
+
+</html>
