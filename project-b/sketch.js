@@ -25,12 +25,8 @@ let down = false;
 
 function preload() {
   handPose = ml5.handPose(options);
-  for (let i = 1;i<=32; i++){
-    if(i < 9){
-    building.push(loadImage("building/" + i + ".jpg"));
-    }else{
-       building.push(loadImage("building/" + i + ".png"));
-    }
+  for (let i = 1;i<=34; i++){
+    building.push(loadImage("building/" + i + ".png"));
   }
   sky = loadImage("sky.jpg");
 }
